@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Browser Window Size Display</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+    <div>WELCOME TO MY SITE</div>
+    </header>
+    <div class="main-container">
+        <p>This site will display the screen size in pixels</p>
+        <div class="screen-display-container">
+            <p class="screen-display">Screen height: <strong id="screen-height-disp"></strong></p> <!-- screen height will display inside <strong> tags-->
+            <p class="screen-display">Screen width: <strong id="screen-width-disp"></strong></p> <!-- screen width will display inside <strong> tags-->
+        </div>
+    </div>
+
+<!-- below is where javascript will be used. all codes inside <script> tags will be considered as javascript-->
+<script type="text/javascript">
+    /* this will display the screen height and width after the page has loaded */
+    document.getElementById("screen-height-disp").innerHTML = document.documentElement.clientHeight + "px";
+    document.getElementById("screen-width-disp").innerHTML = document.documentElement.clientWidth + "px";
+
+    /*
+    This will display the screen height and width when the screen is being resized.
+    EventListener helps in identifying the actions done by the user. "resize" is the action done by the user
+
+    document.documentElement.clientHeight is used to get the entire height of the browser in pixels
+    document.documentElement.clientWidth is used to get the entire width of the browser in pixels
+    */
+    window.addEventListener('resize', function(event){
+        document.getElementById("screen-height-disp").innerHTML = document.documentElement.clientHeight + "px";
+        document.getElementById("screen-width-disp").innerHTML = document.documentElement.clientWidth + "px";
+    });
+</script>    
+</body>
+</html>
